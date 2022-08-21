@@ -34,6 +34,7 @@ function createPageGuard(router: Router) {
 
   router.beforeEach(async (to) => {
     // The page has already been loaded, it will be faster to open it again, you don’t need to do loading and other processing
+    /*将要被打开的页to，是否加载过，如果没加载过，会打开process和loading*/
     to.meta.loaded = !!loadedPageMap.get(to.path);
     // Notify routing changes
     setRouteChange(to);
@@ -130,6 +131,7 @@ export function createMessageGuard(router: Router) {
   });
 }
 
+/* 进度条守卫*/
 export function createProgressGuard(router: Router) {
   const { getOpenNProgress } = useTransitionSetting();
   router.beforeEach(async (to) => {

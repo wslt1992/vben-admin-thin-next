@@ -15,6 +15,7 @@ getRouteNames(basicRoutes);
 
 // app router
 export const router = createRouter({
+  /*public path 作为base路径*/
   history: createWebHashHistory(import.meta.env.VITE_PUBLIC_PATH),
   routes: basicRoutes as unknown as RouteRecordRaw[],
   strict: true,
@@ -25,6 +26,7 @@ export const router = createRouter({
 export function resetRouter() {
   router.getRoutes().forEach((route) => {
     const { name } = route;
+    /*删除全部的非白名单路由*/
     if (name && !WHITE_NAME_LIST.includes(name as string)) {
       router.hasRoute(name) && router.removeRoute(name);
     }

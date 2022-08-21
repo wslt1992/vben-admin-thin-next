@@ -37,6 +37,7 @@ export const LoginRoute: AppRouteRecordRaw = {
 };
 
 // Basic routing without permission
+/*登录，根路径，主外路径，重定向路径，404路径*/
 export const basicRoutes = [
   LoginRoute,
   RootRoute,

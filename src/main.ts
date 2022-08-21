@@ -29,13 +29,16 @@ async function bootstrap() {
   setupStore(app);
 
   // Initialize internal system configuration
+  /* 本地化和主题的配置*/
   initAppConfigStore();
 
   // Register global components
+  /*全局组件*/
   registerGlobComp(app);
 
   // Multilingual configuration
   // Asynchronous case: language files may be obtained from the server side
+  /*设置国际化，默认为中文*/
   await setupI18n(app);
 
   // Configure routing
